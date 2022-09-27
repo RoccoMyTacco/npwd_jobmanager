@@ -1,7 +1,7 @@
-import { common, green } from '@mui/material/colors';
+import { common, green, grey } from '@mui/material/colors';
 import { ThemeOptions } from '@mui/material';
 
-export const APP_PRIMARY_COLOR = green[500];
+export const APP_PRIMARY_COLOR = grey[900];
 
 export const LIGHT_APP_TEXT_COLOR = common.white;
 export const DARK_APP_TEXT_COLOR = common.black;

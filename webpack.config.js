@@ -58,7 +58,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name,
+      name: 'Uber',
       filename: 'remoteEntry.js',
       exposes: {
         './config': './npwd.config',
