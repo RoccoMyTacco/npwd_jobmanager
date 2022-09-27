@@ -3,16 +3,16 @@ import { AppIcon } from './icon';
 
 const defaultLanguage = 'en';
 const localizedAppName = {
-  en: 'Uber Eats',
+  en: 'Job Manager',
 };
 
 interface Settings {
   language: 'en';
 }
 
-export const path = '/npwd_ubereats';
+export const path = '/npwd_jobmanager';
 export default (settings: Settings) => ({
-  id: 'UBER_EATS',
+  id: 'jobmanager',
   path,
   nameLocale: localizedAppName[settings?.language ?? defaultLanguage],
   color: '#fff',

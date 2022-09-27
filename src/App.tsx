@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { RecoilRoot } from 'recoil';
 import { NuiProvider, useNuiEvent } from 'react-fivem-hooks';
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -71,9 +72,11 @@ const App = (props: AppProps) => {
 };
 
 const WithProviders: React.FC<AppProps> = (props) => (
-  <NuiProvider>
-    <App {...props} />
-  </NuiProvider>
+  <RecoilRoot>
+    <NuiProvider>
+      <App {...props} />
+    </NuiProvider>
+  </RecoilRoot>
 );
 
 export default WithProviders;

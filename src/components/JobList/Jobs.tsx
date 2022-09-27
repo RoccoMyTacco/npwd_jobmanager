@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import { APP_PRIMARY_COLOR } from '../../app.theme';
-import { Button, IconButton, Box, List, ListItem, ListItemText, Switch, useTheme } from '@mui/material';
+import { Icon, Button, IconButton, Box, List, ListItem, ListItemText, Switch, useTheme } from '@mui/material';
 import styled from '@emotion/styled';
 import { Job, CurrentJob } from '../../types/jobs';
 import { useJobsValue, useSetJobs, useCurJobValue, useSetCurJob } from '../../atoms/jobs-atoms';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 interface JobsListProps {
     isDarkMode: boolean;
   }
@@ -41,10 +41,12 @@ export const JobsList: React.FC<JobsListProps> = ({ isDarkMode}) => {
             setCurrentJob([{job: value, grade: grade}]);
         }
       };
+      
     return (
         <List disablePadding sx={{overflow: 'auto'}}>
              {jobs.map((job: Job) => (
                 <ListItem key={job.job} divider>
+                    <FontAwesomeIcon icon={["fas", "coffee"]} />
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',width: '100%'}}>
                         <ListItemText primaryTypographyProps={{color: isDarkMode ? '#fff' : '#000', fontSize: '17px'}} primary={job.jobLabel} secondary={job.gradeLabel}/>
                         {(deleteJob !== job.job) &&
