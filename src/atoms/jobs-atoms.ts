@@ -10,20 +10,18 @@ export const jobStates = {
     key: 'Jobs',
     default: selector<Job[]>({
       key: 'defaultJobs',
-      get: () => {
+      get: async() => {
         try {
-          const resp = fetchNui<ServerPromiseResp<Job[]>>(
-            'npwd:jobmanager:getPlayerJobs',
-          );
-          if (Object.keys(resp).length == 0) {
+          const resp = await fetchNui<ServerPromiseResp<Job[]>>('npwd:jobmanager:getPlayerJobs');
+          if (!resp.data) {
             console.log('no response data');
-            if (isEnvBrowser()) {
-                return MockJobs;
-              }
             return [];
           }
-          return [];
+          return resp.data;
         } catch (e) {
+          if (isEnvBrowser()) {
+            return MockJobs;
+          }
           console.error(e);
           return [];
         }
@@ -34,20 +32,20 @@ export const jobStates = {
     key: 'CurJobs',
     default: selector<CurrentJob[]>({
       key: 'defaultCurJobs',
-      get: () => {
+      get: async() => {
         try {
-          const resp = fetchNui<ServerPromiseResp<CurrentJob[]>>(
+          const resp = await fetchNui<ServerPromiseResp<CurrentJob[]>>(
             'npwd:jobmanager:getCurJob',
           );
-          if (Object.keys(resp).length == 0) {
+          if (!resp.data) {
             console.log('no response data');
-            if (isEnvBrowser()) {
-                return CurMockJobs;
-              }
             return [];
           }
-          return [];
+          return resp.data;
         } catch (e) {
+          if (isEnvBrowser()) {
+            return CurMockJobs;
+          }
           console.error(e);
           return [];
         }

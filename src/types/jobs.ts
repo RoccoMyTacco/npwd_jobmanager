@@ -9,4 +9,5 @@ export interface Job {
 export interface CurrentJob {
     job: string;
     grade: number;
+    onDuty: boolean;
 }

@@ -21,5 +21,6 @@ export const CurMockJobs: CurrentJob[] =[
     {
         job: 'police',
         grade: 3,
+        onDuty: true,
     },
 ]

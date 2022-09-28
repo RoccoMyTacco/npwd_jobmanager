@@ -10,10 +10,9 @@ interface Settings {
   language: 'en';
 }
 
-export const path = '/npwd_jobmanager';
 export default (settings: Settings) => ({
   id: 'jobmanager',
-  path,
+  path: '/jobmanager',
   nameLocale: localizedAppName[settings?.language ?? defaultLanguage],
   color: '#fff',
   backgroundColor: '#333',
