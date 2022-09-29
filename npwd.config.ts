@@ -15,7 +15,7 @@ export default (settings: Settings) => ({
   path: '/jobmanager',
   nameLocale: localizedAppName[settings?.language ?? defaultLanguage],
   color: '#fff',
-  backgroundColor: '#333',
+  backgroundColor: '#6600a6',
   icon: AppIcon,
   app: App,
 });
